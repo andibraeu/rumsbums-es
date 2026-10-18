@@ -1,0 +1,37 @@
+---
+import Basis from '../layouts/Basis.astro';
+
+interface Eintrag {
+  id: string;
+  data: {
+    title: string;
+    description: string;
+  };
+}
+
+interface Props {
+  title: string;
+  intro: string;
+  basis: string;
+  eintraege: Eintrag[];
+}
+
+const { title, intro, basis, eintraege } = Astro.props;
+---
+
+<Basis title={`${title} — Blitz & Donner`} weather="toggle">
+  <main class="seite">
+    <h1>{title}</h1>
+    <p>{intro}</p>
+    {eintraege.length > 0 && (
+      <ul class="liste">
+        {eintraege.map((eintrag) => (
+          <li>
+            <a href={`${basis}/${eintrag.id}`}>{eintrag.data.title}</a>
+            <span>{eintrag.data.description}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </main>
+</Basis>

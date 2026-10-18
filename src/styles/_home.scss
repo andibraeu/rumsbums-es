@@ -1,0 +1,150 @@
+.start {
+  width: min(520px, calc(100% - 28px));
+  text-align: center;
+  padding: 28px 0 36px;
+}
+
+.start h1 {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 8vw, 52px);
+  letter-spacing: 1px;
+  line-height: 1;
+  text-shadow: 3px 3px #000;
+}
+
+.start h1 svg {
+  vertical-align: -6px;
+}
+
+.gif {
+  background: #111;
+  border: 4px ridge #c8c8c8;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.bulbs {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 6px 8px;
+  background: #0a0a0a;
+}
+
+.bulbs i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3a3008;
+  box-shadow: inset 0 0 0 1px #000;
+}
+
+.bulbs i:nth-child(odd) { animation: bulb 0.7s steps(2, end) infinite; }
+.bulbs i:nth-child(even) { animation: bulb 0.7s steps(2, end) infinite reverse; }
+
+@keyframes bulb {
+  0%,
+  49% {
+    background: #ffe566;
+    box-shadow: 0 0 8px #ffd000, inset 0 0 0 1px #000;
+  }
+  50%,
+  100% {
+    background: #3a3008;
+    box-shadow: inset 0 0 0 1px #000;
+  }
+}
+
+.pole {
+  height: 16px;
+  background: repeating-linear-gradient(-45deg, #111 0 12px, #ffd000 12px 24px);
+  background-size: 34px 16px;
+  animation: slide 0.45s linear infinite;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+@keyframes slide {
+  to { background-position: 34px 0; }
+}
+
+.scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 10px 8px;
+  background: #1a1a1a;
+}
+
+.sign-face {
+  background: #ffd000;
+  color: #111;
+  border: 4px solid #111;
+  padding: 8px 14px 10px;
+  min-width: 0;
+}
+
+.kicker {
+  font-size: 13px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+.word {
+  font-size: clamp(28px, 7vw, 40px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.sub {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% { visibility: hidden; }
+}
+
+.worker { flex: 0 0 auto; }
+
+.bob {
+  transform-origin: 50px 112px;
+  animation: bob 0.6s steps(2, end) infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+.hammer {
+  transform-box: fill-box;
+  transform-origin: 0% 80%;
+  animation: swing 0.7s steps(2, end) infinite;
+}
+
+@keyframes swing {
+  0%,
+  49% { transform: rotate(-28deg); }
+  50%,
+  100% { transform: rotate(16deg); }
+}
+
+.soon {
+  margin: 18px 0 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bulbs i { background: #ffe566; }
+}
+
+@media (max-width: 420px) {
+  .scene { flex-direction: column; }
+}

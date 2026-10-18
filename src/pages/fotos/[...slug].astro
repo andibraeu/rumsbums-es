@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import Basis from '../../layouts/Basis.astro';
+
+export async function getStaticPaths() {
+  const eintraege = await getCollection('fotos');
+  return eintraege.map((eintrag) => ({
+    params: { slug: eintrag.id },
+    props: { eintrag },
+  }));
+}
+
+const { eintrag } = Astro.props;
+const { Content } = await render(eintrag);
+---
+
+<Basis title={`${eintrag.data.title} — Blitz & Donner`} weather="toggle">
+  <article class="seite">
+    <h1>{eintrag.data.title}</h1>
+    <Content />
+  </article>
+</Basis>

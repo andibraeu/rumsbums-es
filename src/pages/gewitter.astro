@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import Bereich from '../components/Bereich.astro';
+
+const eintraege = await getCollection('gewitter');
+---
+
+<Bereich
+  title="Bei Gewitter"
+  intro="Hier kommt, was bei Gewitter zu tun ist."
+  basis="/gewitter"
+  eintraege={eintraege}
+/>

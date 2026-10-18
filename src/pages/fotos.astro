@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import Bereich from '../components/Bereich.astro';
+
+const eintraege = await getCollection('fotos');
+---
+
+<Bereich
+  title="Fotos"
+  intro="Hier kommen später die Bilder hin."
+  basis="/fotos"
+  eintraege={eintraege}
+/>
