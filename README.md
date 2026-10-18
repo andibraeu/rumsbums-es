@@ -39,12 +39,12 @@ Bei jedem Push auf `main` baut GitHub Actions die Seite und lädt `dist/` per FT
 - `FTP_HOST` (Hostname oder IP)
 - `FTP_USERNAME`
 - `FTP_PASSWORD`
-- `FTP_REMOTE_DIR` (Zielordner, muss schon existieren und mit `/` enden, z. B. `public_html/`)
+- `FTP_REMOTE_DIR` (Zielordner, muss schon existieren und mit `/` enden, z. B. `httpdocs/`)
 - `FTP_PORT` ist optional, sonst gilt Port 21.
 
-Das Serverzertifikat wird geprüft. Passt es nicht zum Hostnamen, schlägt der Lauf fehl. Der FTP-Benutzer sollte nur in diesen Ordner schreiben dürfen.
+Das Serverzertifikat wird geprüft. Passt es nicht zum Hostnamen, schlägt der Lauf fehl.
 
-Die Action legt im Zielordner `.ftp-deploy-sync-state.json` ab. Darin stehen die Namen der hochgeladenen Dateien. Darf der Benutzer ein Verzeichnis darüber schreiben, im Workflow `state-name: ../.ftp-deploy-sync-state.json` setzen.
+Die Action merkt sich den Stand in `.ftp-deploy-sync-state.json` eine Ebene über dem Zielordner, also neben `httpdocs/` und nicht im Webroot. Dafür muss der FTP-Benutzer dort schreiben dürfen. Die bisherige Datei in `httpdocs/` einmal per FTP löschen, sie wird nicht mehr angefasst.
 
 ## Updates
 

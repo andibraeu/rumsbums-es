@@ -28,3 +28,4 @@ jobs:
           security: strict
           local-dir: ./dist/
           server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          state-name: ../.ftp-deploy-sync-state.json
