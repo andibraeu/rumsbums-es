@@ -1,0 +1,23 @@
+---
+const punkte = [
+  { href: '/blitzarten', label: 'Blitzarten' },
+  { href: '/gewitter', label: 'Bei Gewitter' },
+  { href: '/fotos', label: 'Fotos' },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+function aktuell(href: string) {
+  return path === href || path.startsWith(`${href}/`);
+}
+---
+
+<nav aria-label="Bereiche">
+  <ul class="nav">
+    {punkte.map((punkt) => (
+      <li>
+        <a href={punkt.href} aria-current={aktuell(punkt.href) ? 'page' : undefined}>{punkt.label}</a>
+      </li>
+    ))}
+  </ul>
+</nav>

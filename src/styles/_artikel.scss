@@ -1,0 +1,40 @@
+.seite {
+  width: min(640px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+
+.seite h1 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 6vw, 40px);
+  line-height: 1.05;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px #000;
+}
+
+.seite p,
+.seite li {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.seite a {
+  color: #ffe14a;
+}
+
+.liste {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.liste li + li {
+  margin-top: 12px;
+}
+
+.liste span {
+  display: block;
+  color: #d7d7ea;
+  font-size: 16px;
+}

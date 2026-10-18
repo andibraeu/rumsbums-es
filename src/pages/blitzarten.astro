@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import Bereich from '../components/Bereich.astro';
+
+const eintraege = await getCollection('blitzarten');
+---
+
+<Bereich
+  title="Blitzarten"
+  intro="Hier kommen die Arten von Blitzen hin."
+  basis="/blitzarten"
+  eintraege={eintraege}
+/>
